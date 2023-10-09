@@ -47,7 +47,11 @@
         input.addEventListener("input", updateValue);
 
         function updateValue(e) {
-            log.innerHTML = e.target.value;
+            log.textContent = encodeHtml(e.target.value);
+        }
+
+        function encodeHTML(input) {
+            return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
         }
 
     </script>
